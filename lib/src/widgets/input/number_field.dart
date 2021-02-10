@@ -23,8 +23,8 @@ class NumberField extends BaseTextField {
           validator: (String value) => validateCardNum(value, card),
           inputFormatters: [
             WhitelistingTextInputFormatter.digitsOnly,
-            new LengthLimitingTextInputFormatter(19),
-            new CardNumberInputFormatter()
+             LengthLimitingTextInputFormatter(19),
+             CardNumberInputFormatter()
           ],
         );
 

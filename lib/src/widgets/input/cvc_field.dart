@@ -19,7 +19,7 @@ class CVCField extends BaseTextField {
               card != null && card.cvc != null ? card.cvc.toString() : null,
           inputFormatters: [
             WhitelistingTextInputFormatter.digitsOnly,
-            new LengthLimitingTextInputFormatter(4),
+             LengthLimitingTextInputFormatter(4),
           ],
         );
 

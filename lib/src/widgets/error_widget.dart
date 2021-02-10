@@ -21,33 +21,33 @@ class ErrorWidget extends StatelessWidget {
     this.payWithBank,
     this.tryAnotherCard,
     this.startOverWithCard,
-  }) : controller = new AnimationController(
+  }) : controller =  AnimationController(
           duration: const Duration(milliseconds: 500),
           vsync: vSync,
         ) {
     controller.forward();
   }
 
-  final emptyContainer = new Container();
+  final emptyContainer =  Container();
 
   @override
   Widget build(BuildContext context) {
     // Remove 'Retry buttons for bank payment because when you retry a transaction it ret
     var buttonMargin =
-        isCardPayment ? new SizedBox(height: 5.0) : emptyContainer;
-    return new Container(
-      child: new CustomAnimatedWidget(
+        isCardPayment ?  SizedBox(height: 5.0) : emptyContainer;
+    return  Container(
+      child:  CustomAnimatedWidget(
         controller: controller,
-        child: new Column(
+        child:  Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            new Icon(
+             Icon(
               Icons.warning,
               size: 50.0,
               color: const Color(0xFFf9a831),
             ),
-            new SizedBox(height: 10.0),
-            new Text(
+             SizedBox(height: 10.0),
+             Text(
               text,
               textAlign: TextAlign.center,
               style: const TextStyle(
@@ -56,14 +56,14 @@ class ErrorWidget extends StatelessWidget {
                 fontSize: 14.0,
               ),
             ),
-            new SizedBox(height: 25.0),
+             SizedBox(height: 25.0),
             isCardPayment
-                ? new WhiteButton(
+                ?  WhiteButton(
                     onPressed: tryAnotherCard, text: 'Try another card')
                 : emptyContainer,
             buttonMargin,
             method == CheckoutMethod.selectable || method == CheckoutMethod.bank
-                ? new WhiteButton(
+                ?  WhiteButton(
                     onPressed: payWithBank,
                     text: method == CheckoutMethod.bank || !isCardPayment
                         ? 'Retry'
@@ -72,7 +72,7 @@ class ErrorWidget extends StatelessWidget {
                 : emptyContainer,
             buttonMargin,
             isCardPayment
-                ? new WhiteButton(
+                ?  WhiteButton(
                     onPressed: startOverWithCard,
                     text: 'Start over with same card',
                     iconData: Icons.refresh,

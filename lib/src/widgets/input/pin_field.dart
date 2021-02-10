@@ -16,7 +16,7 @@ class _PinFieldState extends State<PinField> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
-      child: new TextField(
+      child:  TextField(
         keyboardType: TextInputType.number,
         textAlign: TextAlign.center,
         style: TextStyle(
@@ -28,10 +28,10 @@ class _PinFieldState extends State<PinField> {
         autofocus: true,
         inputFormatters: [
           WhitelistingTextInputFormatter.digitsOnly,
-          new LengthLimitingTextInputFormatter(widget.pinLength),
+           LengthLimitingTextInputFormatter(widget.pinLength),
         ],
         obscureText: true,
-        decoration: new InputDecoration(
+        decoration:  InputDecoration(
           border: OutlineInputBorder(),
           isDense: true,
           hintText: 'ENTER PIN',

@@ -10,7 +10,7 @@ class Utils {
 
   static validateSdkInitialized() {
     if (!PaystackPlugin.sdkInitialized) {
-      throw new PaystackSdkNotInitializedException(
+      throw  PaystackSdkNotInitializedException(
           'Paystack SDK has not been initialized. The SDK has'
           ' to be initialized before use');
     }
@@ -38,23 +38,23 @@ class Utils {
     if (publicKey == null ||
         publicKey.isEmpty ||
         !publicKey.startsWith("pk_")) {
-      throw new AuthenticationException(Utils.getKeyErrorMsg('public'));
+      throw  AuthenticationException(Utils.getKeyErrorMsg('public'));
     }
 
     if (charge == null) {
-      throw new PaystackException('charge must not be null');
+      throw  PaystackException('charge must not be null');
     }
     if (charge.amount == null || charge.amount.isNegative) {
-      throw new InvalidAmountException(charge.amount);
+      throw  InvalidAmountException(charge.amount);
     }
     if (!StringUtils.isValidEmail(charge.email)) {
-      throw new InvalidEmailException(charge.email);
+      throw  InvalidEmailException(charge.email);
     }
   }
 
   /// Add double spaces after every 4th character
   static String addSpaces(String text) {
-    var buffer = new StringBuffer();
+    var buffer =  StringBuffer();
     for (int i = 0; i < text.length; i++) {
       buffer.write(text[i]);
       var nonZeroIndex = i + 1;

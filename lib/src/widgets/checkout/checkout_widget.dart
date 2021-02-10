@@ -64,12 +64,12 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
     _initPaymentMethods();
     _currentIndex = _getCurrentTab();
     _showTabs = widget.method == CheckoutMethod.selectable ? true : false;
-    _tabController = new TabController(
+    _tabController =  TabController(
         vsync: this,
         length: _methodWidgets.length,
         initialIndex: _currentIndex);
     _tabController.addListener(_indexChange);
-    _animationController = new AnimationController(
+    _animationController =  AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
@@ -131,15 +131,15 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
         )
       ],
     );
-    return new CustomAlertDialog(
+    return  CustomAlertDialog(
       expanded: true,
       fullscreen: widget.fullscreen,
       titlePadding: EdgeInsets.all(0.0),
       onCancelPress: onCancelPress,
       title: _buildTitle(),
-      content: new Container(
-        child: new SingleChildScrollView(
-          child: new Container(
+      content:  Container(
+        child:  SingleChildScrollView(
+          child:  Container(
               padding:
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: Column(
@@ -199,9 +199,9 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        new Container(
+         Container(
           padding: const EdgeInsets.all(10.0),
-          child: new Row(
+          child:  Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -217,10 +217,10 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
                   key: Key("Logo"),
                   child: widget.logo,
                 ),
-              new SizedBox(
+               SizedBox(
                 width: 50,
               ),
-              new Expanded(child: emailAndAmount),
+               Expanded(child: emailAndAmount),
             ],
           ),
         ),
@@ -234,11 +234,11 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
       duration: const Duration(milliseconds: 300),
       vsync: this,
       curve: Curves.fastOutSlowIn,
-      child: new Container(
+      child:  Container(
         color: Colors.grey.withOpacity(0.1),
         height: _tabHeight,
         alignment: Alignment.center,
-        child: new TabBar(
+        child:  TabBar(
           controller: _tabController,
           isScrollable: true,
           unselectedLabelColor: Colors.black54,

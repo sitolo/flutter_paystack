@@ -11,7 +11,7 @@ class AccountField extends BaseTextField {
           onSaved: onSaved,
           inputFormatters: [
             WhitelistingTextInputFormatter.digitsOnly,
-            new LengthLimitingTextInputFormatter(10),
+             LengthLimitingTextInputFormatter(10),
           ],
         );
 

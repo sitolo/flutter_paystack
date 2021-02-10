@@ -34,7 +34,7 @@ class PaystackPlugin {
   static Future<PaystackPlugin> initialize({@required String publicKey}) async {
     assert(() {
       if (publicKey == null || publicKey.isEmpty) {
-        throw new PaystackException('publicKey cannot be null or empty');
+        throw  PaystackException('publicKey cannot be null or empty');
       }
       return true;
     }());
@@ -84,7 +84,7 @@ class PaystackPlugin {
     if (_publicKey == null ||
         _publicKey.isEmpty ||
         !_publicKey.startsWith("pk_")) {
-      throw new AuthenticationException(Utils.getKeyErrorMsg('public'));
+      throw  AuthenticationException(Utils.getKeyErrorMsg('public'));
     }
   }
 
@@ -188,7 +188,7 @@ class _Paystack {
       OnTransactionError<Object, Transaction> onError}) {
     final completer = Completer<CheckoutResponse>();
     try {
-      final manager = new CardTransactionManager(
+      final manager =  CardTransactionManager(
           service: CardService(),
           charge: charge,
           context: context,
@@ -254,13 +254,13 @@ class _Paystack {
       switch (method) {
         case CheckoutMethod.card:
           if (charge.accessCode == null && charge.reference == null) {
-            throw new ChargeException(Strings.noAccessCodeReference);
+            throw  ChargeException(Strings.noAccessCodeReference);
           }
           break;
         case CheckoutMethod.bank:
         case CheckoutMethod.selectable:
           if (charge.accessCode == null) {
-            throw new ChargeException('Pass an accesscode');
+            throw  ChargeException('Pass an accesscode');
           }
           break;
       }
@@ -270,7 +270,7 @@ class _Paystack {
     CheckoutResponse response = await showDialog(
       barrierDismissible: false,
       context: context,
-      builder: (BuildContext context) => new CheckoutWidget(
+      builder: (BuildContext context) =>  CheckoutWidget(
         bankService: BankService(),
         cardsService: CardService(),
         method: method,

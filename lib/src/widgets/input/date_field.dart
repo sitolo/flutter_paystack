@@ -20,8 +20,8 @@ class DateField extends BaseTextField {
           onSaved: onSaved,
           inputFormatters: [
             WhitelistingTextInputFormatter.digitsOnly,
-            new LengthLimitingTextInputFormatter(4),
-            new CardMonthInputFormatter()
+             LengthLimitingTextInputFormatter(4),
+             CardMonthInputFormatter()
           ],
         );
 
@@ -48,7 +48,7 @@ class DateField extends BaseTextField {
     int month;
     // The value contains a forward slash if the month and year has been
     // entered.
-    if (value.contains(new RegExp(r'(\/)'))) {
+    if (value.contains( RegExp(r'(\/)'))) {
       final date = CardUtils.getExpiryDate(value);
       month = date[0];
       year = date[1];

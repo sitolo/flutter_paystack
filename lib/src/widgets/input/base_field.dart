@@ -33,13 +33,13 @@ class BaseTextField extends StatelessWidget {
       maxLines: 1,
       initialValue: initialValue,
       keyboardType: TextInputType.number,
-      decoration: new InputDecoration(
+      decoration:  InputDecoration(
         border: OutlineInputBorder(),
         labelText: labelText,
         labelStyle: const TextStyle(color: Colors.grey, fontSize: 14.0),
         suffixIcon: suffix == null
             ? null
-            : new Padding(
+            :  Padding(
                 padding: const EdgeInsetsDirectional.only(end: 12.0),
                 child: suffix,
               ),

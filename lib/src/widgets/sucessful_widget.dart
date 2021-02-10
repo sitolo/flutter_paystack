@@ -10,7 +10,7 @@ class SuccessfulWidget extends StatefulWidget {
 
   @override
   _SuccessfulWidgetState createState() {
-    return new _SuccessfulWidgetState();
+    return  _SuccessfulWidgetState();
   }
 }
 
@@ -28,24 +28,24 @@ class _SuccessfulWidgetState extends State<SuccessfulWidget>
   @override
   void initState() {
     super.initState();
-    _mainController = new AnimationController(
+    _mainController =  AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
     _mainController.forward();
 
-    _countdownController = new AnimationController(
+    _countdownController =  AnimationController(
       vsync: this,
-      duration: new Duration(seconds: kStartValue),
+      duration:  Duration(seconds: kStartValue),
     );
     _countdownController.addListener(() => setState(() {}));
     _countdownAnim =
-        new StepTween(begin: kStartValue, end: 0).animate(_countdownController);
+         StepTween(begin: kStartValue, end: 0).animate(_countdownController);
 
-    _opacityController = new AnimationController(
+    _opacityController =  AnimationController(
         vsync: this, duration: const Duration(milliseconds: 500));
     _opacity =
-        new CurvedAnimation(parent: _opacityController, curve: Curves.linear)
+         CurvedAnimation(parent: _opacityController, curve: Curves.linear)
           ..addStatusListener((status) {
             if (status == AnimationStatus.completed) {
               _opacityController.reverse();
@@ -68,14 +68,14 @@ class _SuccessfulWidgetState extends State<SuccessfulWidget>
   @override
   Widget build(BuildContext context) {
     final accentColor = Theme.of(context).accentColor;
-    return new Container(
-      child: new CustomAnimatedWidget(
+    return  Container(
+      child:  CustomAnimatedWidget(
         controller: _mainController,
-        child: new Column(
+        child:  Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             sizedBox,
-            new Image.asset(
+             Image.asset(
               'assets/images/successful.png',
               color: accentColor,
               width: 50.0,
@@ -90,21 +90,21 @@ class _SuccessfulWidgetState extends State<SuccessfulWidget>
                 fontSize: 16.0,
               ),
             ),
-            new SizedBox(
+             SizedBox(
               height: 5.0,
             ),
             widget.amount == null || widget.amount.isNegative
-                ? new Container()
-                : new Text('You paid ${Utils.formatAmount(widget.amount)}',
+                ?  Container()
+                :  Text('You paid ${Utils.formatAmount(widget.amount)}',
                     style: const TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.normal,
                       fontSize: 14.0,
                     )),
             sizedBox,
-            new FadeTransition(
+             FadeTransition(
               opacity: _opacity,
-              child: new Text(
+              child:  Text(
                 _countdownAnim.value.toString(),
                 style: TextStyle(
                     color: accentColor,
@@ -112,7 +112,7 @@ class _SuccessfulWidgetState extends State<SuccessfulWidget>
                     fontSize: 25.0),
               ),
             ),
-            new SizedBox(
+             SizedBox(
               height: 30.0,
             )
           ],

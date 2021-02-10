@@ -18,7 +18,7 @@ class WhiteButton extends _BaseButton {
           text: text,
           child: child,
           iconData: iconData,
-          textStyle: new TextStyle(
+          textStyle:  TextStyle(
               fontSize: 14.0,
               color: Colors.black87.withOpacity(0.8),
               fontWeight: bold ? FontWeight.bold : FontWeight.normal),
@@ -81,44 +81,44 @@ class _BaseButton extends StatelessWidget {
     const borderRadius = const BorderRadius.all(Radius.circular(5.0));
     var textWidget;
     if (text != null) {
-      textWidget = new Text(
+      textWidget =  Text(
         text,
         textAlign: TextAlign.center,
         style: textStyle,
       );
     }
-    return new Container(
+    return  Container(
         width: double.infinity,
         height: 50.0,
         alignment: Alignment.center,
-        decoration: new BoxDecoration(
+        decoration:  BoxDecoration(
           borderRadius: borderRadius,
           color: color,
         ),
-        child: new Container(
+        child:  Container(
           width: double.infinity,
           height: double.infinity,
-          child: new FlatButton(
+          child:  FlatButton(
               onPressed: showProgress ? null : onPressed,
-              shape: new RoundedRectangleBorder(
+              shape:  RoundedRectangleBorder(
                   borderRadius: borderRadius, side: borderSide),
               child: showProgress
-                  ? new Container(
+                  ?  Container(
                       width: 20.0,
                       height: 20.0,
-                      child: new Theme(
+                      child:  Theme(
                           data: Theme.of(context)
                               .copyWith(accentColor: Colors.white),
-                          child: new CircularProgressIndicator(
+                          child:  CircularProgressIndicator(
                             strokeWidth: 2.0,
                           )),
                     )
                   : iconData == null
                       ? child == null ? textWidget : child
-                      : new Row(
+                      :  Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            new Icon(
+                             Icon(
                               iconData,
                               color: textStyle.color.withOpacity(0.5),
                             ),

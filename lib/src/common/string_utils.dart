@@ -5,7 +5,7 @@ class StringUtils {
 
   static bool isValidEmail(String email) {
     if (isEmpty(email)) return false;
-    RegExp regExp = new RegExp(_emailRegex);
+    RegExp regExp =  RegExp(_emailRegex);
     return regExp.hasMatch(email);
   }
 

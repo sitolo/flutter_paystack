@@ -5,7 +5,7 @@ class PlatformInfo {
   static String _deviceId;
 
   static final PlatformInfo _platformSpecificInfo =
-      new PlatformInfo._internal();
+       PlatformInfo._internal();
 
   factory PlatformInfo() {
     return _platformSpecificInfo;

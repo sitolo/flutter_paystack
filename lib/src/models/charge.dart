@@ -57,7 +57,7 @@ class Charge {
   set account(BankAccount value) {
     if (value == null) {
       // Precaution to avoid setting of this field outside the library
-      throw new PaystackException('account cannot be null');
+      throw  PaystackException('account cannot be null');
     }
     _account = value;
   }
@@ -72,7 +72,7 @@ class Charge {
       'value': value,
       'display_name': displayName,
       'variable_name':
-          displayName.toLowerCase().replaceAll(new RegExp(r'[^a-z0-9 ]'), "_")
+          displayName.toLowerCase().replaceAll( RegExp(r'[^a-z0-9 ]'), "_")
     };
     this._customFields.add(customMap);
     this._hasMeta = true;

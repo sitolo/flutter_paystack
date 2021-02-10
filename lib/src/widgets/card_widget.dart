@@ -12,7 +12,7 @@ class CardInputWidget extends StatefulWidget {
 
   @override
   _CardInputWidgetState createState() {
-    return new _CardInputWidgetState();
+    return  _CardInputWidgetState();
   }
 }
 
@@ -25,8 +25,8 @@ class _CardInputWidgetState extends BaseState<CardInputWidget> {
 
   @override
   Widget buildChild(BuildContext context) {
-    return new CustomAlertDialog(
-      content: new SingleChildScrollView(
+    return  CustomAlertDialog(
+      content:  SingleChildScrollView(
         child: new Container(
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
           alignment: Alignment.center,

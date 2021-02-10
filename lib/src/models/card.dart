@@ -185,7 +185,7 @@ class PaymentCard {
 
     // Remove all non digits
     var formattedNumber =
-        cardNumber.trim().replaceAll(new RegExp(r'[^0-9]'), '');
+        cardNumber.trim().replaceAll( RegExp(r'[^0-9]'), '');
 
     // Verve card needs no other validation except it matched pattern
     if (CardType.fullPatternVerve.hasMatch(formattedNumber)) {

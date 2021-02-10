@@ -24,7 +24,7 @@ class CardInput extends StatefulWidget {
 }
 
 class _CardInputState extends State<CardInput> {
-  var _formKey = new GlobalKey<FormState>();
+  var _formKey =  GlobalKey<FormState>();
   final PaymentCard _card;
   var _autoValidate = false;
   TextEditingController numberController;
@@ -35,7 +35,7 @@ class _CardInputState extends State<CardInput> {
   @override
   void initState() {
     super.initState();
-    numberController = new TextEditingController();
+    numberController =  TextEditingController();
     numberController.addListener(_getCardTypeFrmNumber);
     if (_card?.number != null) {
       numberController.text = Utils.addSpaces(_card.number);
@@ -51,12 +51,12 @@ class _CardInputState extends State<CardInput> {
 
   @override
   Widget build(BuildContext context) {
-    return new Form(
+    return  Form(
       autovalidate: _autoValidate,
       key: _formKey,
-      child: new Column(
+      child:  Column(
         children: <Widget>[
-          new NumberField(
+           NumberField(
             key: Key("CardNumberKey"),
             controller: numberController,
             card: _card,
@@ -64,15 +64,15 @@ class _CardInputState extends State<CardInput> {
                 _card.number = CardUtils.getCleanedNumber(value),
             suffix: getCardIcon(),
           ),
-          new SizedBox(
+           SizedBox(
             height: 15.0,
           ),
-          new Row(
+           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              new Flexible(
-                child: new DateField(
+               Flexible(
+                child:  DateField(
                   key: ValueKey("ExpiryKey"),
                   card: _card,
                   onSaved: (value) {
@@ -82,9 +82,9 @@ class _CardInputState extends State<CardInput> {
                   },
                 ),
               ),
-              new SizedBox(width: 15.0),
-              new Flexible(
-                  child: new CVCField(
+               SizedBox(width: 15.0),
+               Flexible(
+                  child:  CVCField(
                 key: Key("CVVKey"),
                 card: _card,
                 onSaved: (value) {
@@ -93,10 +93,10 @@ class _CardInputState extends State<CardInput> {
               )),
             ],
           ),
-          new SizedBox(
+           SizedBox(
             height: 20.0,
           ),
-          new AccentButton(
+           AccentButton(
               key: Key("PayButton"),
               onPressed: _validateInputs,
               text: widget.buttonText,
@@ -115,7 +115,7 @@ class _CardInputState extends State<CardInput> {
   }
 
   void _validateInputs() {
-    FocusScope.of(context).requestFocus(new FocusNode());
+    FocusScope.of(context).requestFocus( FocusNode());
     final FormState form = _formKey.currentState;
     if (form.validate()) {
       form.save();

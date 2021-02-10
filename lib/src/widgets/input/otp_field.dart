@@ -17,7 +17,7 @@ class OtpField extends TextFormField {
           onSaved: onSaved,
           validator: (String value) => value.isEmpty ? 'Enter OTP' : null,
           obscureText: false,
-          decoration: new InputDecoration(
+          decoration:  InputDecoration(
             border: OutlineInputBorder(),
             isDense: true,
             hintText: 'ENTER',

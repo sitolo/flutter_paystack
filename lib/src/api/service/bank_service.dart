@@ -61,7 +61,7 @@ class BankService with BaseApiService implements BankServiceContract {
     if (statusCode == HttpStatus.ok) {
       return TransactionApiResponse.fromMap(responseBody);
     } else {
-      throw new ChargeException(Strings.unKnownResponse);
+      throw  ChargeException(Strings.unKnownResponse);
     }
   }
 
@@ -81,7 +81,7 @@ class BankService with BaseApiService implements BankServiceContract {
       var data = body['data'];
       List<Bank> banks = [];
       for (var bank in data) {
-        banks.add(new Bank(bank['name'], bank['id']));
+        banks.add( Bank(bank['name'], bank['id']));
       }
       return banks;
     } catch (e) {}
@@ -89,4 +89,4 @@ class BankService with BaseApiService implements BankServiceContract {
   }
 }
 
-var banksMemo = new AsyncMemoizer<List<Bank>>();
+var banksMemo =  AsyncMemoizer<List<Bank>>();
